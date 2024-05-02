@@ -64,6 +64,9 @@ class DartaResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                 ->numeric()
+                 ->sortable(),
                 Tables\Columns\TextColumn::make('fisical_year.name')
                     ->numeric()
                     ->sortable(),

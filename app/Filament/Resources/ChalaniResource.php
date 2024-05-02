@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -64,6 +65,9 @@ class ChalaniResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                     ->numeric()
+                     ->sortable(),
                 Tables\Columns\TextColumn::make('fisical_year.name')
                     ->numeric()
                     ->sortable(),
@@ -108,6 +112,11 @@ class ChalaniResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                // Action::make('download')
+                    // ->color('info')
+                    // ->icon('heroicon-o-download')
+                    // ->url(fn(Post $record) => route('download.image', $record))
+                    // ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
