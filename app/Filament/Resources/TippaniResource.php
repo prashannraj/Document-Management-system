@@ -44,6 +44,8 @@ class TippaniResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->multiple()
+                    ->maxSize(1024)
                     ->required(),
                 Forms\Components\Select::make('department_id')
                     ->relationship('department', 'name')

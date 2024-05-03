@@ -44,6 +44,9 @@ class DartaResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->openable()
+                    ->maxSize(1024)
+                    //->downloadable()
                     ->required(),
                 Forms\Components\Select::make('department_id')
                     ->relationship('department', 'name')

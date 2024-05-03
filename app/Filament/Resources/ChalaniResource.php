@@ -45,6 +45,10 @@ class ChalaniResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->multiple()
+                     ->reorderable()
+                    ->appendFiles()
+                    ->maxSize(1024)
                     ->required(),
                 Forms\Components\Select::make('department_id')
                     ->relationship('department', 'name')
