@@ -42,11 +42,11 @@ class TippaniResource extends Resource
                 Forms\Components\TextInput::make('subject')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->multiple()
-                    ->maxSize(1024)
-                    ->required(),
+                Forms\Components\FileUpload::make('images')
+                ->image()
+                ->multiple()
+                ->openable()
+                ->required(),
                 Forms\Components\Select::make('department_id')
                     ->relationship('department', 'name')
                     ->required(),
@@ -79,7 +79,12 @@ class TippaniResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('subject')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                ->square()
+                ->stacked()
+                ->limit(3)
+                ->limitedRemainingText()
+                ->searchable(),
                 Tables\Columns\TextColumn::make('department.name')
                     ->numeric()
                     ->sortable(),

@@ -43,12 +43,10 @@ class ChalaniResource extends Resource
                 Forms\Components\TextInput::make('subject')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
+                Forms\Components\FileUpload::make('images')
                     ->image()
                     ->multiple()
-                     ->reorderable()
-                    ->appendFiles()
-                    ->maxSize(1024)
+                    ->openable()
                     ->required(),
                 Forms\Components\Select::make('department_id')
                     ->relationship('department', 'name')
@@ -91,7 +89,12 @@ class ChalaniResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('subject')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->square()
+                    ->stacked()
+                    ->limit(3)
+                    ->limitedRemainingText()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('department.name')
                     ->numeric()
                     ->sortable(),

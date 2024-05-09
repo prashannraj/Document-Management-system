@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('chalani_date_ad');
             $table->unsignedInteger('patra_number');
             $table->string('subject');
-            $table->string('image');
+            $table->string('images');
             $table->foreignId('department_id')->constrained('departments')->cascadeOnDelete();
             $table->string('patra_sender_office');
             $table->string('patra_sender_person');

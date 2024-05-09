@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Darta extends Model
 {
     use HasFactory;
+
+    protected $casts =[
+        'images' => 'array',
+    ];
      /**
   * Get the user that owns the Chalani
   *
